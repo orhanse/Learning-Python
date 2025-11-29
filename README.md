@@ -16,15 +16,18 @@ You need Python 3 installed.
 
 1. Open a terminal.
 2. Navigate to the folder that contains the exercise, for example:
-
+    ```
     cd 01_python_syntax
+    ```
 
 3. Run any exercise file using:
 
     python3 <filename>.py
 
     Example:
-        python3 exercise_01_variables.py  
+       ```
+        python3 exercise_01_variables.py
+       ```
 
 Adjust the filename depending on which exercise you want to run.
 
