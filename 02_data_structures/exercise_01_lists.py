@@ -24,7 +24,7 @@
 #   11a. Initialize empty list
 #   11b: Loop through list and check if element is even
 #   11c: Return list of even numbers
-#12. User input to add numbers: read input, add to the list
+# 12. User input to add numbers: read input, add to the list
 
 
 
