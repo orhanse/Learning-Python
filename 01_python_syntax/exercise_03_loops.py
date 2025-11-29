@@ -10,13 +10,16 @@
 # 2. Use a while-loop to print numbers 5 to 1
 # 3. Print each character of a string in a loop
 
+print('Number in range(1,6): ')
 for i in range(1, 6):
-    print(i)
+    print(i, end = ' ')
+print('\n')
 
 count = 5
 while count > 0:
-    print(count)
+    print(count, end='\t')
     count -= 1
+print('\n')
 
 text = "Python"
 for char in text:
