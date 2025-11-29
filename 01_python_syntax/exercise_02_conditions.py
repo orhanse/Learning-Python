@@ -1,25 +1,43 @@
-# Exercise 02: Conditions
+# Exercise 02: Conditionals and Logical Operators
 #
 # Learning points:
 # - Using if/elif/else
-# - Boolean expressions
+# - Comparison operators: ==, !=, >, <, >=, <=
+# - Logical operators: and, or, not
+# - Combining conditions
+# - Using user input
 #
 # Steps:
-# 1. Ask the user to enter a number (use input())
-# 2. Convert it to an integer
-# 3. If the number > 0 print "Positive"
-# 4. If the number < 0 print "Negative"
-# 5. If the number == 0 print "Zero"
+# 1. Ask the user to enter a number
+# 2. Convert the input to an integer
+# 3. Check if the number is positive, negative, or zero using if/elif/else
+# 4. Ask the user for another number
+# 5. Check if both numbers are positive using 'and'
+# 6. Check if at least one number is zero using 'or'
+# 7. Demonstrate 'not' operator by checking if the first number is NOT negative
 
-intputVar = input('Enter a number: ')
+# Step 1 & 2: User input
+num1 = int(input('Enter the first number: '))
 
-# input() always gives a sting. You need to convert it to the type you need.
-# In our case we convert it to int using int() function
-number = int(intputVar)
-
-if number > 0:
-    print('Positive')
-elif number < 0:
-    print('Negative')
+# Step 3: Positive, negative, or zero
+if num1 > 0:
+    print('The number is positive.')
+elif num1 < 0:
+    print('The number is negative.')
 else:
-    print('Zero')
+    print('The number is zero.')
+
+# Step 4: Second number input
+num2 = int(input('Enter the second number: '))
+
+# Step 5: Check if both numbers are positive
+if num1 > 0 and num2 > 0:
+    print('Both numbers are positive.')
+
+# Step 6: Check if at least one number is zero
+if num1 == 0 or num2 == 0:
+    print('At least one number is zero.')
+
+# Step 7: Using 'not' operator
+if not num1 < 0:
+    print('The first number is not negative.')
