@@ -28,9 +28,9 @@ age = int(input('Enter your age: '))
 height = float(input('Enter your height in meters (e.g., 1.75): '))
 
 # Step 4: Print each variable
-print('Name:', name)
-print('Age:', age)
-print('Height:', height)
+print('Name:', name, end = ' ')
+print('Age:', age, end = '\t')
+print('Height:', height, end = '\n')
 
 # Step 5: Print formatted sentence
 print(f'My name is {name}, I am {age} years old, and my height is {height} meters.')
