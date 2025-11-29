@@ -12,6 +12,9 @@
 # 5. If the number == 0 print "Zero"
 
 intputVar = input('Enter a number: ')
+
+# input() always gives a sting. You need to convert it to the type you need.
+# In our case we convert it to int using int() function
 number = int(intputVar)
 
 if number > 0:
