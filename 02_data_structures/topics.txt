@@ -1,0 +1,85 @@
+Week 2 – Data Structure Exercises
+
+1. Lists
+Exercise:
+Create a list of five numbers.
+Print the first and last element
+Add a new number
+Remove one number
+Sort the list
+Print the final result
+Learning points: indexing, append, remove, sort.
+
+2. Tuples
+Exercise:
+Create a tuple representing a person: (name, age, city).
+Print each element
+Try modifying one element (expect an error)
+Explain why tuples are useful
+Learning points: immutability, unpacking.
+
+3. Dictionaries
+Exercise:
+Create a dictionary with keys: "name", "age", "skills".
+Add a new key "country"
+Update "age"
+Append a new skill
+Loop over keys and print them
+Loop over key-value pairs and print them
+Learning points: CRUD operations, iteration, nested structures.
+
+4. Sets
+Exercise:
+Given two sets:
+A = {1, 2, 3, 4}
+B = {3, 4, 5, 6}
+Find intersection
+Find union
+Find difference
+Check if a number is in the set
+Learning points: uniqueness, set operations.
+
+5. List Comprehensions
+Exercise:
+Given a list of numbers, create using list comprehensions:
+A list of squares
+A list of even numbers
+A list of numbers larger than 10
+Learning points: concise iteration, filtering, transformations.
+
+6. Iteration Patterns
+Exercise:
+Given a list of words:
+Loop with for
+Loop with index using range(len())
+Loop with enumerate()
+Loop through nested lists (2D list)
+Learning points: when to use each iteration pattern.
+
+
+Mini-Projects
+1. To-Do List (simple CLI)
+Requirements:
+Store tasks in a list
+Menu: Add task, remove task, show tasks, exit
+Loop until user chooses exit
+Learning points: lists, loops, input handling.
+
+
+2. Simple Phone Book
+Requirements:
+Use a dictionary where keys = names, values = phone numbers
+Add new contact
+Update existing contact
+Search by name
+Delete contact
+Show all contacts
+Learning points: dictionaries, loops, input, error handling.
+
+3. Word Counter
+Requirements:
+Ask the user for a text input
+Count how many times each word appears
+Show the results sorted by most frequent
+Bonus: ignore case and punctuation
+Learning points: dictionaries, text processing, sorting patterns.
