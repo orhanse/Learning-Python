@@ -1,0 +1,10 @@
+[
+  {
+    "patient_id": "301",
+    "doctor_id": "101"
+  },
+  {
+    "patient_id": "301",
+    "doctor_id": "102"
+  }
+]
