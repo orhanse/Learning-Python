@@ -9,11 +9,13 @@ class Doctor(Person):
     speciality = str()
     available = bool()
 
+
     def __init__(self, name: str, pid: str, speciality: str):
         super().__init__(name, pid)
         self.speciality = speciality
         self.available = True
         self.patients = {}
+
 
     @classmethod
     def register(cls, pid):
@@ -22,10 +24,12 @@ class Doctor(Person):
         speciality = input('Enter speciality: ')
         
         return cls(name, pid, speciality)
-    
+
+
     def isAvailable(self):
         return self.available and len(self.patients) < self.MAX_PATIENTS
     
+
     def showPatientList(self):
         if not self.patients:
             print('No patient waiting...')

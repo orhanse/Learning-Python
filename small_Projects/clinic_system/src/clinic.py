@@ -11,23 +11,28 @@ class Clinic:
     doctors = dict()
     appointments = list()
 
+
     def __init__(self):
         self.patients = {}
         self.doctors = {}
         self.appointments = []
 
+
     def addPatient(self, patient):
         self.patients[patient.pid] = patient
 
+
     def addDoctor(self, doctor):
         self.doctors[doctor.pid] = doctor
+
 
     def getPatient(self, patientID):
         if patientID in self.patients:
             p  = self.patients[patientID]
             return p
         raise ValueError('Patient not found')
-    
+
+
     def showAvailableDoctors(self):
         available = [d for d in self.doctors.values() if d.isAvailable()]
 
@@ -39,18 +44,21 @@ class Clinic:
         for d in available:
             print(f'ID: {d.pid}, Name: {d.name}, Speciality: {d.speciality}')
 
+
     def getDoctor(self, doctorID) -> Doctor:
         if doctorID in self.doctors:
             d  = self.doctors[doctorID]
             return d
         raise ValueError('Doctor not found')
 
+
     def scheduleAppointment(self, patient : Patient, doctor : Doctor, date : str):
         appt = Appointment(patient.name, doctor.name, date)
         self.appointments.append(appt)
         patient.addAppointment(appt)
         doctor.addPatient(patient)
-    
+
+
     def doctorEntry(self):
         doctorID = input('Enter doctor ID (for login): ')
 
@@ -89,6 +97,7 @@ class Clinic:
             newDoctor = Doctor.register(doctorID)
             self.addDoctor(newDoctor)
             print(f'Dr. {newDoctor.name} is registered successfully.')
+
 
     def patientEntry(self):
         patientID = input('Patient ID: ')
