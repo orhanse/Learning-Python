@@ -52,11 +52,22 @@ class Clinic:
         raise ValueError('Doctor not found')
 
 
-    def scheduleAppointment(self, patient : Patient, doctor : Doctor, date : str):
-        appt = Appointment(patient.name, doctor.name, date)
+    def showPatientAppoinments(self, patient : Patient):
+        if not patient.myAppointments:
+            print('No current appointments.')
+            return
+        
+        print('Your Appointments: ')
+        for d in patient.myAppointments:
+            doctor = self.getDoctor(d)
+            print(f'Dr. {doctor.name} - Speciality: {doctor.speciality}')
+
+
+    def scheduleAppointment(self, patient : Patient, doctor : Doctor):
+        appt = Appointment(patient.pid, doctor.pid)
         self.appointments.append(appt)
-        patient.addAppointment(appt)
-        doctor.addPatient(patient)
+        patient.addDoctor(doctor.pid)
+        doctor.addPatient(patient.pid)
 
 
     def doctorEntry(self):
@@ -80,9 +91,7 @@ class Clinic:
                     continue
                 
                 if choice == 1:
-                    pid = input('Enter patient ID to cure (or press Enter for first): ')
-                    patientID = pid.strip() if pid else None
-                    cured = doctor.cure(patientID)
+                    cured = doctor.cure()
                     print(f'Cured: {cured.name}')
 
                 elif choice == 2:
@@ -120,7 +129,7 @@ class Clinic:
                     continue
 
                 if choice == 1:
-                    patient.showCurrentAppoinments()
+                    self.showPatientAppoinments(patient)
 
                 elif choice == 2:
                     self.showAvailableDoctors()
@@ -134,8 +143,7 @@ class Clinic:
                     else:
                         doc = self.getDoctor(docID)
     
-                    date = input('Enter date(YYYY-mm-dd): ')
-                    self.scheduleAppointment(patient, doc, date)
+                    self.scheduleAppointment(patient, doc)
                     print('Appointment booked.')
 
                 elif choice == 3:

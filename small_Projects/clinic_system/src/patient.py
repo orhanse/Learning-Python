@@ -4,14 +4,14 @@
 from src.person import Person
 
 class Patient(Person):
-    appointments = dict()
+    myAppointments = list()
     illness = str()
 
 
     def __init__(self, name : str, pid : str, illness : str):
         super().__init__(name, pid)
         self.illness = illness
-        self.appointments = {}
+        self.appointments = []
 
 
     @classmethod
@@ -23,18 +23,8 @@ class Patient(Person):
         return cls(name, pid, illness)
 
 
-    def showCurrentAppoinments(self):
-        if not self.appointments:
-            print('No current appointments.')
-            return
-        
-        print('Your Appointments: ')
-        for d in self.appointments.values():
-            print(f' - {d.name}, Speciality: {d.speciality}')
-
-
-    def addAppointment(self, appt):
-        self.appointments[appt.doctorName] = appt
+    def addDoctor(self, doctorID):
+        self.myAppointments.append(doctorID)
 
 
     def __str__(self):

@@ -5,7 +5,7 @@ from src.person import Person
 
 class Doctor(Person):
     MAX_PATIENTS = 5
-    patients = dict()
+    patients = list()
     speciality = str()
     available = bool()
 
@@ -14,7 +14,7 @@ class Doctor(Person):
         super().__init__(name, pid)
         self.speciality = speciality
         self.available = True
-        self.patients = {}
+        self.patients = []
 
 
     @classmethod
@@ -28,21 +28,11 @@ class Doctor(Person):
 
     def isAvailable(self):
         return self.available and len(self.patients) < self.MAX_PATIENTS
-    
-
-    def showPatientList(self):
-        if not self.patients:
-            print('No patient waiting...')
-            return
-        
-        print('\nPatients Booked: ')
-        for p in self.patients:
-            print(f' - {p}')
 
 
-    def addPatient(self, patient):
+    def addPatient(self, patientID):
         if self.isAvailable():
-            self.patients[patient.name] = patient
+            self.patients.append(patientID)
 
             if len(self.patients) >= self.MAX_PATIENTS:
                 self.available = False
@@ -51,20 +41,12 @@ class Doctor(Person):
             raise ValueError('Doctor is full.')
 
 
-    def cure(self, patientID = None):
+    def cure(self):
         if not self.patients:
             raise ValueError('No patients to cure')
         
-        if patientID is None:
-            patient = self.patients.popitem(last = False)
-            return patient
-        
-        if patientID in self.patients:
-            patient = self.patients[patientID]
-            del self.patients[patientID]
-            return patient
-        
-        raise ValueError('Patient not found')
+        patient = self.patients.pop()
+        return patient.pid
 
 
     def __str__(self):

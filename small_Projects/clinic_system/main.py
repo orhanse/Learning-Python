@@ -1,7 +1,16 @@
+from src.loader import (
+    loadDoctors, loadPatients, loadAppoinments,
+    saveDoctors, savePatients, saveAppointments
+)
+
 from src.clinic import Clinic
 
 def clinicMenu():
     clinic = Clinic()
+
+    loadDoctors(clinic)
+    loadPatients(clinic)
+    loadAppoinments(clinic)
 
     while True:
         print('\n--- Hospital Appointment System ---')
@@ -24,6 +33,10 @@ def clinicMenu():
 
         elif choice == 3:
             print('Exiting...')
+            saveDoctors(clinic)
+            savePatients(clinic)
+            saveAppointments(clinic)
+
             break
 
         else:
@@ -31,7 +44,7 @@ def clinicMenu():
 
 
 def main():
-    
+
     clinicMenu()
     
 
