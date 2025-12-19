@@ -4,14 +4,10 @@
 from src.person import Person
 
 class Patient(Person):
-    myAppointments = list()
-    illness = str()
-
-
     def __init__(self, name : str, pid : str, illness : str):
         super().__init__(name, pid)
         self.illness = illness
-        self.appointments = []
+        self.myAppointments = []
 
 
     @classmethod
@@ -25,6 +21,11 @@ class Patient(Person):
 
     def addDoctor(self, doctorID):
         self.myAppointments.append(doctorID)
+
+
+    def removeDoctor(self, doctorID):
+        if doctorID in self.myAppointments:
+            self.myAppointments.remove(doctorID)
 
 
     def __str__(self):
