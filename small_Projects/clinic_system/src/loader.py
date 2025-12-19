@@ -26,7 +26,7 @@ def loadPatients(clinic : Clinic, path = 'files/patients.json'):
     data = loadJson(path)
     for p in data:
         patient = Patient(p['name'], p['pid'], p['illness'])
-        patient.appointments = p.get('appointments', [])
+        patient.myAppointments = p.get('appointments', [])
         clinic.patients[patient.pid] = patient
 
 
