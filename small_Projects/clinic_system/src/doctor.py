@@ -5,10 +5,6 @@ from src.person import Person
 
 class Doctor(Person):
     MAX_PATIENTS = 5
-    patients = list()
-    speciality = str()
-    available = bool()
-
 
     def __init__(self, name: str, pid: str, speciality: str):
         super().__init__(name, pid)
@@ -45,8 +41,8 @@ class Doctor(Person):
         if not self.patients:
             raise ValueError('No patients to cure')
         
-        patient = self.patients.pop()
-        return patient.pid
+        patientID = self.patients.pop()
+        return patientID
 
 
     def __str__(self):
