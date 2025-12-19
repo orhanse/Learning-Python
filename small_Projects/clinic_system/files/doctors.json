@@ -3,9 +3,7 @@
     "name": "John Smith",
     "pid": "101",
     "speciality": "Cardiology",
-    "patients": [
-      "301"
-    ]
+    "patients": []
   },
   {
     "name": "Sara Lee",

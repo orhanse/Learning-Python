@@ -4,7 +4,6 @@
     "pid": "301",
     "illness": "flu",
     "appointments": [
-      "101",
       "102"
     ]
   },
