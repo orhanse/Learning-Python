@@ -7,23 +7,27 @@ from src.doctor import Doctor
 from src.appointment import Appointment
 
 class Clinic:
-    patients = dict()
-    doctors = dict()
-    appointments = list()
-
-
     def __init__(self):
         self.patients = {}
         self.doctors = {}
         self.appointments = []
 
 
-    def addPatient(self, patient):
+    def addPatient(self, patient : Patient):
         self.patients[patient.pid] = patient
 
 
-    def addDoctor(self, doctor):
+    def addDoctor(self, doctor : Doctor):
         self.doctors[doctor.pid] = doctor
+
+
+    def removeFirstAppointment(self, patientID, doctorID):
+        for i, appt in enumerate(self.appointments):
+            if appt.patientID == patientID and appt.doctorID == doctorID:
+                del self.appointments[i]
+                return True
+        return False
+
 
 
     def getPatient(self, patientID):
@@ -63,6 +67,16 @@ class Clinic:
             print(f'Dr. {doctor.name} - Speciality: {doctor.speciality}')
 
 
+    def showPatientList(self, doctor : Doctor):
+        if not doctor.patients:
+            print('No current appointments.')
+            return
+
+        print('Your Patients: ')
+        for p in doctor.patients:
+            patient = self.getPatient(p)
+            print(f'{patient.name} - Illness: {patient.illness}')
+
     def scheduleAppointment(self, patient : Patient, doctor : Doctor):
         appt = Appointment(patient.pid, doctor.pid)
         self.appointments.append(appt)
@@ -76,7 +90,7 @@ class Clinic:
         try:
             doctor = self.getDoctor(doctorID)
             print(f'Welcome {doctor.name}')
-            doctor.showPatientList()
+            self.showPatientList(doctor)
 
             while True:
                 print("\nOptions:")
@@ -91,8 +105,11 @@ class Clinic:
                     continue
                 
                 if choice == 1:
-                    cured = doctor.cure()
-                    print(f'Cured: {cured.name}')
+                    curedPatientID = doctor.cure()
+                    patient = self.getPatient(curedPatientID)
+                    patient.removeDoctor(doctor.pid)
+                    self.removeFirstAppointment(patient.pid, doctor.pid)
+                    print(f'Cured: {patient.name}')
 
                 elif choice == 2:
                     print('Goodbye.')
