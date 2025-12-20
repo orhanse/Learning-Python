@@ -18,6 +18,6 @@ def testClinicAddDoctor():
 def testClinicScheduleAppointment():
     clinic.addPatient(patientOne)
     clinic.addDoctor(doctorOne)
-    clinic.scheduleAppointment(patientOne, doctorOne, '2025-01-02')
+    clinic.scheduleAppointment(patientOne, doctorOne)
     assert len(clinic.appointments) == 1
 
