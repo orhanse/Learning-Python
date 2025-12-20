@@ -1,12 +1,11 @@
 from src.appointment import Appointment
 
-appointment = Appointment('Selman', 'Dr. John', '2025-01-01')
+appointment = Appointment('301', '101')
 
 def testAppointmentCreation():
-    assert appointment.patientName == 'Selman'
-    assert appointment.doctorName == 'Dr. John'
-    assert appointment.date == '2025-01-01'
+    assert appointment.patientID == '301'
+    assert appointment.doctorID == '101'
 
 
 def testAppointmentStr():
-    assert str(appointment) == 'Appointment(patient=Selman, doctor=Dr. John, date=2025-01-01)'
+    assert str(appointment) == 'Appointment(patient=301, doctor=101)'
