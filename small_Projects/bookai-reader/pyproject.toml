@@ -1,0 +1,9 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "bookai-reader"
+version = "0.1.0"
+description = "Desktop AI-assisted ebook reader"
+requires-python = ">=3.10"

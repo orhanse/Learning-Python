@@ -1,0 +1,20 @@
+# Core GUI
+tk
+
+# Document parsing
+PyMuPDF          # PDF and other document formats [web:24][web:25]
+PyPDF2
+EbookLib         # EPUB support [web:31][web:34]
+mobi
+python-docx
+beautifulsoup4   # For extracting text from EPUB HTML [web:29]
+
+# AI / NLP
+transformers
+torch
+sentence-transformers  # Embeddings engine [web:35][web:40]
+
+# Dev tools (optional but recommended)
+pytest
+ruff
+black
