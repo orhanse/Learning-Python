@@ -19,6 +19,7 @@ BookAI Reader is a desktop application written in Python that lets you build a p
 
 ## Project Structure
 
+```text
 bookai-reader/
 ├─ .gitignore
 ├─ Makefile
@@ -27,32 +28,32 @@ bookai-reader/
 ├─ requirements.txt
 ├─ setup.sh
 ├─ src/
-│ ├─ init.py
-│ ├─ main.py # entrypoint
-│ ├─ config.py # paths, app config
-│ ├─ models.py # Book dataclass
-│ ├─ library_manager.py # library persistence
-│ ├─ file_parsers/
-│ │ ├─ init.py
-│ │ ├─ base.py
-│ │ ├─ pdf_parser.py
-│ │ ├─ epub_parser.py
-│ │ ├─ mobi_parser.py
-│ │ ├─ txt_parser.py
-│ │ └─ docx_parser.py
-│ ├─ ai/
-│ │ ├─ init.py
-│ │ ├─ summarizer.py
-│ │ └─ embeddings.py
-│ └─ ui/
-│ ├─ init.py
-│ ├─ main_window.py
-│ └─ widgets.py
+│  ├─ __init__.py
+│  ├─ main.py              # entrypoint
+│  ├─ config.py            # paths, app config
+│  ├─ models.py            # Book dataclass
+│  ├─ library_manager.py   # library persistence
+│  ├─ file_parsers/
+│  │  ├─ __init__.py
+│  │  ├─ base.py
+│  │  ├─ pdf_parser.py
+│  │  ├─ epub_parser.py
+│  │  ├─ mobi_parser.py
+│  │  ├─ txt_parser.py
+│  │  └─ docx_parser.py
+│  ├─ ai/
+│  │  ├─ __init__.py
+│  │  ├─ summarizer.py
+│  │  └─ embeddings.py
+│  └─ ui/
+│     ├─ __init__.py
+│     ├─ main_window.py
+│     └─ widgets.py
 └─ tests/
-├─ init.py
-├─ test_parsers.py
-├─ test_library_manager.py
-└─ test_ai.py
+   ├─ __init__.py
+   ├─ test_parsers.py
+   ├─ test_library_manager.py
+   └─ test_ai.py
 
 
 ---
