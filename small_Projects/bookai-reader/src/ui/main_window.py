@@ -60,6 +60,8 @@ class MainWindow:
         bottom_right = tk.Frame(right_frame)
         bottom_right.pack(fill=tk.BOTH, expand=False)
 
+        #Add ai summarize here
+
         self.summary_box = tk.Text(bottom_right, height=8, wrap=tk.WORD)
         self.summary_box.pack(side=tk.LEFT, fill=tk.BOTH, expand=True)
 
@@ -93,6 +95,8 @@ class MainWindow:
         book_id = sel[0]
         self.library.remove_book(book_id)
         self.book_list.load_books(self.library.list_books())
+        self.text_box.delete("1.0", tk.END)
+        self.summary_box.delete("1.0", tk.END)
 
     
     def _on_select_book(self, event=None) -> None:
