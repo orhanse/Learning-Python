@@ -10,16 +10,16 @@ install: venv
 	$(VENV)/bin/pip install --upgrade pip
 	$(VENV)/bin/pip install -r requirements.txt
 
-run: install
+run:
 	$(VENV)/bin/python -m src.main
 
-test: install
+test:
 	$(VENV)/bin/python -m pytest -q
 
-lint: install
+lint:
 	$(VENV)/bin/ruff check src tests
 
-format: install
+format:
 	$(VENV)/bin/ruff format src tests || $(VENV)/bin/black src tests
 
 clean:
