@@ -3,6 +3,7 @@ from tkinter import filedialog
 from pathlib import Path
 
 from ..config import APP_NAME
+from .widgets import BookList
 
 
 def run_app() -> None:
@@ -34,6 +35,10 @@ class MainWindow:
         remove_btn = tk.Button(toolbar, text="Remove", command=self._remove_book)
         remove_btn.pack(side=tk.LEFT, padx=4, pady=4)
 
+        self.book_list = BookList(left_frame, height=25)
+        self.book_list.pack(fill=tk.BOTH, expand=True)
+        self.book_list.bind("<<TreeviewSelect>>", self._on_select_book)
+
 
     def _add_book(self) -> None:
         filetypes = [
@@ -51,5 +56,14 @@ class MainWindow:
         path = Path(filename)
         print('Booked added: ', path)
 
+    
     def _remove_book(self) -> None:
         print('Booked removed.')
+
+    
+    def _on_select_book(self, event=None) -> None:
+        sel = self.book_list.selection()
+        if not sel:
+            return
+        book_id = sel[0]
+        self._open_book(book_id)
