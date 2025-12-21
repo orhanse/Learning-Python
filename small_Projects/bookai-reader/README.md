@@ -16,7 +16,6 @@ BookAI Reader is a desktop application written in Python that lets you build a p
   - Reader and AI summary panel on the right[web:15]
 
 ---
-
 ## Project Structure
 
 ```text
@@ -55,7 +54,7 @@ bookai-reader/
    ├─ test_library_manager.py
    └─ test_ai.py
 
-```text
+```
 
 ---
 
@@ -71,7 +70,7 @@ All Python dependencies are listed in `requirements.txt`. They include:
 - AI / NLP: `transformers`, `torch`, `sentence-transformers`.[web:29][web:35][web:40]
 - Dev tools: `pytest`, `ruff`, `black`.
 
-Ensure you have Python 3.10+ installed.
+Ensure you have `Python 3.10+` installed.
 
 ---
 
@@ -79,7 +78,7 @@ Ensure you have Python 3.10+ installed.
 
 ### 1. Clone the repository
 
-```
+```shell
 git clone https://github.com/<your-username>/bookai-reader.git
 cd bookai-reader
 ```
@@ -89,16 +88,18 @@ cd bookai-reader
 
 You can use the provided `setup.sh`:
 
-```
+```shell
 ./setup.sh
 ```
 
 then, in each new shell:
-```
+
+```shell
 source .venv/bin/activate
 ```
 or manually:
-```
+
+```shell
 python3 -m venv .venv
 source .venv/bin/activate
 pip install --upgrade pip
