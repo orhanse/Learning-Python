@@ -55,6 +55,7 @@ bookai-reader/
    ├─ test_library_manager.py
    └─ test_ai.py
 
+```text
 
 ---
 
