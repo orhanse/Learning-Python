@@ -35,6 +35,7 @@ or
 make test
 ```
 
+## BookAI Reader
 
-
+BookAI Reader is a desktop application written in Python that lets you build a personal library of ebooks (PDF, EPUB, MOBI, TXT, DOCX), read them, and use AI to generate summaries and embeddings for smarter reading workflows. The app ships with a simple Tkinter-based UI, a pluggable parsing layer for different formats, and an AI module built on top of modern NLP libraries.[web:6][web:14][web:17][web:24][web:25][web:31][web:34][web:35][web:40]
 
