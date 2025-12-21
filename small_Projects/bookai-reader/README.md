@@ -19,3 +19,88 @@ BookAI Reader is a desktop application written in Python that lets you build a p
 
 ## Project Structure
 
+bookai-reader/
+├─ .gitignore
+├─ Makefile
+├─ pyproject.toml
+├─ README.md
+├─ requirements.txt
+├─ setup.sh
+├─ src/
+│ ├─ init.py
+│ ├─ main.py # entrypoint
+│ ├─ config.py # paths, app config
+│ ├─ models.py # Book dataclass
+│ ├─ library_manager.py # library persistence
+│ ├─ file_parsers/
+│ │ ├─ init.py
+│ │ ├─ base.py
+│ │ ├─ pdf_parser.py
+│ │ ├─ epub_parser.py
+│ │ ├─ mobi_parser.py
+│ │ ├─ txt_parser.py
+│ │ └─ docx_parser.py
+│ ├─ ai/
+│ │ ├─ init.py
+│ │ ├─ summarizer.py
+│ │ └─ embeddings.py
+│ └─ ui/
+│ ├─ init.py
+│ ├─ main_window.py
+│ └─ widgets.py
+└─ tests/
+├─ init.py
+├─ test_parsers.py
+├─ test_library_manager.py
+└─ test_ai.py
+
+
+---
+
+## Requirements
+
+All Python dependencies are listed in `requirements.txt`. They include:
+
+- GUI: `tk` (Tkinter bindings).[web:15]
+- PDF parsing: `PyMuPDF`, `PyPDF2`.[web:24][web:25]
+- EPUB parsing: `EbookLib`, `beautifulsoup4`.[web:14][web:31][web:34]
+- MOBI parsing: `mobi`.[web:5]
+- DOCX parsing: `python-docx`.
+- AI / NLP: `transformers`, `torch`, `sentence-transformers`.[web:29][web:35][web:40]
+- Dev tools: `pytest`, `ruff`, `black`.
+
+Ensure you have Python 3.10+ installed.
+
+---
+
+## Setup
+
+### 1. Clone the repository
+
+```
+git clone https://github.com/<your-username>/bookai-reader.git
+cd bookai-reader
+```
+
+
+### 2. Create virtual environment and install dependencies
+
+You can use the provided `setup.sh`:
+
+```
+./setup.sh
+```
+
+then, in each new shell:
+```
+source .venv/bin/activate
+```
+or manually:
+```
+python3 -m venv .venv
+source .venv/bin/activate
+pip install --upgrade pip
+pip install -r requirements.txt
+```
+
+---
