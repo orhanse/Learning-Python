@@ -3,6 +3,7 @@ from tkinter import filedialog
 from pathlib import Path
 
 from ..config import APP_NAME
+from ..library_manager import LibraryManager
 from .widgets import BookList
 
 
@@ -17,8 +18,10 @@ def run_app() -> None:
 class MainWindow:
     def __init__(self, root: tk.Tk) -> None:
         self.root = root
+        self.library = LibraryManager()
 
         self._build_ui()
+        self._load_library()
 
     
     def _build_ui(self) -> None:
@@ -39,6 +42,8 @@ class MainWindow:
         self.book_list.pack(fill=tk.BOTH, expand=True)
         self.book_list.bind("<<TreeviewSelect>>", self._on_select_book)
 
+    def _load_library(self) -> None:
+        self.book_list.load_books(self.library.list_books())
 
     def _add_book(self) -> None:
         filetypes = [
@@ -54,11 +59,19 @@ class MainWindow:
             return
 
         path = Path(filename)
-        print('Booked added: ', path)
+        ext = path.suffix.lower().lstrip(".")
+        book = self.library.add_book(path=path, fmt=ext)  # type: ignore
+        self.book_list.load_books(self.library.list_books())
+        self._open_book(book.id)
 
     
     def _remove_book(self) -> None:
-        print('Booked removed.')
+        sel = self.book_list.selection()
+        if not sel:
+            return
+        book_id = sel[0]
+        self.library.remove_book(book_id)
+        self.book_list.load_books(self.library.list_books())
 
     
     def _on_select_book(self, event=None) -> None:
@@ -66,4 +79,3 @@ class MainWindow:
         if not sel:
             return
         book_id = sel[0]
-        self._open_book(book_id)
